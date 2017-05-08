@@ -1,0 +1,21 @@
+{
+  "name": "api-restful-albums",
+  "version": "1.0.0",
+  "description": "proyecto api para app de albums",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Israel Martinez (iukones)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "connect-multiparty": "^2.0.0",
+    "mongoose": "^4.9.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
