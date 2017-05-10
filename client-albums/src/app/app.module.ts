@@ -4,21 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { routing, appRoutingProviders } from './app.routing';
-import { AlbumsListComponent } from './components/albums-list-components';
+// import { routing, appRoutingProviders } from './app.routing';
+// import { AlbumsListComponent } from './components/albums-list-components';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AlbumsListComponent
+    AppComponent
+    // AlbumsListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    routing
+    HttpModule
+    // routing
   ],
-  providers: [appRoutingProviders],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
