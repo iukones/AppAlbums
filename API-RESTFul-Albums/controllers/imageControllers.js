@@ -116,21 +116,25 @@ function uploadImage(req, res) {
   if (req.files) {
     let file_path = req.files.image.path
     let file_split = file_path.split('\\')
-    let file_name = file_split[1]
+    let file_name = file_split[2]
+    let ext_split = file_name.split('\.')
+    let file_ext = ext_split[1]
 
-    Image.findByIdAndUpdate(imageId, { picture: file_name }, (err, imageUpdated) => {
-        if (err) res.status(500).send({
-            message: `Error al subir la imagen: ${err}`
-        })
-        if (!imageUpdated) res.status(404).send({
-            message: 'No has subido ninguna imagen'
-        })
-        res.status(200).send({
-            image: imageUpdated
-        })
-    });
-
-  }
+    if(file_ext == 'png' || file_ext == 'jpeg' || file_ext == 'jpg' || file_ext == 'gif'){
+      Image.findByIdAndUpdate(imageId, { picture: file_name }, (err, imageUpdated) => {
+          if (err) res.status(500).send({
+              message: `Error al subir la imagen: ${err}`
+          })
+          if (!imageUpdated) res.status(404).send({
+              message: 'No has subido ninguna imagen'
+          })
+          res.status(200).send({
+              image: imageUpdated
+          })
+      });
+      }
+      res.status(200).send({message: 'Extensión del archivo no valida'})
+    }
 }
 
 // función para devolver ruta de una imagen desde la URL
