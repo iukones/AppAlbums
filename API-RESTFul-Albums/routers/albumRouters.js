@@ -6,7 +6,7 @@ const api = express.Router()
 
 
 // peticion tipo GET a album
-api.get('/album', AlbumCtrl.getAlbums)
+api.get('/albums', AlbumCtrl.getAlbums)
 // peticion tipo GET especifica al elemento albumId
 api.get('/album/:albumId', AlbumCtrl.getAlbum)
 // peticion tipo POST a album
