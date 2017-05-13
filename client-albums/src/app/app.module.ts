@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './routes/appRoutes';
 import { AppComponent }  from './app.component';
-// import { provideRoutes} from '@angular/router';
+
 import { AlbumsListComponent } from './components/albumListComponent';
+import { AlbumAddComponent } from './components/albumAddComponent';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlbumsListComponent
+    AlbumsListComponent,
+    AlbumAddComponent
   ],
   imports: [
     BrowserModule,

@@ -17,4 +17,12 @@ export class AlbumService{
     getAlbums(){
         return this._http.get(this.url+'albums').map(res => res.json());
     }
+
+    AddAlbum(album: Album){
+      let json = JSON.stringify(album);
+      let params = json;
+      let headers = new Headers({'Content-Type':'application/json'});
+
+      return this._http.post(this.url+'album', params, {headers: headers}).map(res => res.json());
+    }
 }
