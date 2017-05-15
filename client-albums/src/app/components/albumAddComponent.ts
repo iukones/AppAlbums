@@ -31,6 +31,12 @@ export class AlbumAddComponent implements OnInit{
     onSubmit(){
         this._albumService.AddAlbum(this.album).subscribe(
             response => {
+              this.album = response.album;
+              if(!response.album){
+                  alert("Error en el servidor");
+              }else{
+                  this._router.navigate(['/']);
+              }
 
             },
             error => {

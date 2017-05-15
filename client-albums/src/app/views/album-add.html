@@ -3,33 +3,33 @@
   <hr id="about">
 
   <!-- First Photo Grid-->
-  <div class="w3-row-padding w3-padding-16">
+  <div class="w3-row-padding w3-padding-16" >
 
-    <form class="" #formAlbum="ngForm" (ngSubmit)="onSubmit()">
-      <label>Nombre: </label><br>
-      <input type="text" #title="ngModel" name="title" [(ngModel)]="album.title" required>
-      <code *ngIf="!title.valid && title.touched">nombre es requerido</code>
-      <br>
-      <br>
-      <label>Descripción: </label><br>
-      <textarea #description="ngModel" name="description" [(ngModel)]="album.description" rows="8" cols="80" required></textarea>
-      <code *ngIf="!description.valid && description.touched">descripción es requerido</code>
-      <br>
-      <br>
+    <div class="w3-quarter" >
+      <form class="" #formAlbum="ngForm" (ngSubmit)="onSubmit()">
+        <label>Nombre: </label><br>
+        <input type="text" #title="ngModel" name="title" [(ngModel)]="album.title" required>
+        <code *ngIf="!title.valid && title.touched">nombre es requerido</code>
+        <br>
+        <br>
+        <label>Descripción: </label><br>
+        <textarea #description="ngModel" name="description" [(ngModel)]="album.description" rows="8" cols="40" required></textarea>
+        <code *ngIf="!description.valid && description.touched">descripción es requerido</code>
+        <br>
+        <br>
+        <input class="w3-black w3-btn w3-button" type="submit" name="" value="Crear album" [disabled]="!formAlbum.form.valid">
+      </form>
 
-      <input class="w3-black w3-btn w3-button" type="submit" name="" value="Crear album" [disabled]="!formAlbum.form.valid">
-
-
-    </form>
+    </div>
 
   </div>
 
-
+<hr id="about">
 
 <!-- Pagination -->
 <div class="w3-center w3-padding-32">
   <div class="w3-bar">
-    <a [routerLink]="['/']" class="w3-bar-item w3-button w3-hover-black">« Regresar a Albums</a>
+    <a [routerLink]="['/']" class="w3-black w3-btn w3-button">« Regresar a Albums</a>
   </div>
 </div>
 

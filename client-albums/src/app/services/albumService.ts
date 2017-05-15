@@ -15,7 +15,13 @@ export class AlbumService{
     }
 
     getAlbums(){
-        return this._http.get(this.url+'albums').map(res => res.json());
+        return this._http.get(this.url+'albums')
+                         .map(res => res.json());
+    }
+
+    getAlbum(id: string){
+      return this._http.get(this.url+'album/'+id)
+                       .map(res => res.json());
     }
 
     AddAlbum(album: Album){
@@ -23,6 +29,9 @@ export class AlbumService{
       let params = json;
       let headers = new Headers({'Content-Type':'application/json'});
 
-      return this._http.post(this.url+'album', params, {headers: headers}).map(res => res.json());
+      return this._http.post(this.url+'album', params, {headers: headers})
+                                 .map(res => res.json());
     }
+
+
 }
