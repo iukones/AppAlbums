@@ -8,13 +8,15 @@ import { AppComponent }  from './app.component';
 import { AlbumsListComponent } from './components/albumListComponent';
 import { AlbumAddComponent } from './components/albumAddComponent';
 import { AlbumDetailComponent } from './components/albumDetailComponent';
+import { AlbumEditComponent } from './components/albumEditComponent';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumsListComponent,
     AlbumAddComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    AlbumEditComponent
   ],
   imports: [
     BrowserModule,

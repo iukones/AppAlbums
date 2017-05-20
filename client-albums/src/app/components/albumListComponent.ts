@@ -13,6 +13,8 @@ export class AlbumsListComponent implements OnInit{
     public titulo: string;
     public albums: Album[];
     public errorMessage: any;
+    
+
 
     constructor(
         private _route: ActivatedRoute,
@@ -47,4 +49,6 @@ export class AlbumsListComponent implements OnInit{
             }
         );
     }
+
+
 }

@@ -1,10 +1,11 @@
-
+<router-outlet></router-outlet>
 <!-- Sidebar (hidden by default) -->
 <nav class="w3-sidebar w3-bar-block w3-card-2 w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()"
   class="w3-bar-item w3-button">Cerrar Menu</a>
   <a [routerLink]="['/agregar-album']" onclick="w3_close()" class="w3-bar-item w3-button">Crear Album</a>
-  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">Subir Imagen</a>
+  <!-- <a [routerLink]="['/editar-album', album._id]" onclick="w3_close()" class="w3-bar-item w3-button">Editar Album</a> -->
+  <a href="#" onclick="w3_close()" class="w3-bar-item w3-button">Añadir Imagen</a>
 </nav>
 
 <!-- Top menu -->
@@ -16,7 +17,7 @@
   </div>
 </div>
 
-<router-outlet></router-outlet>
+
 
 <!-- Footer -->
 <footer class="w3-row-padding w3-padding-32">

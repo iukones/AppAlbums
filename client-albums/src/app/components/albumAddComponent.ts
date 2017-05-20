@@ -11,6 +11,7 @@ import {Album} from '../models/albumModel';
 })
 export class AlbumAddComponent implements OnInit{
     public titulo: string;
+    public botonTitulo: string;
     public album: Album;
     public errorMessage: any;
 
@@ -20,6 +21,7 @@ export class AlbumAddComponent implements OnInit{
         private _albumService: AlbumService
     ){
         this.titulo = 'Agregar Album';
+        this.botonTitulo = 'Crear';
     }
 
     ngOnInit(){

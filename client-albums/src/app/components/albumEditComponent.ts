@@ -4,27 +4,29 @@ import {AlbumService} from '../services/albumService';
 import {Album} from '../models/albumModel';
 
 @Component({
-    selector: 'album-detail',
-    templateUrl: '../views/album-detail.html',
+    selector: 'album-edit',
+    templateUrl: '../views/album-add.html',
     providers: [AlbumService]
 
 })
-export class AlbumDetailComponent implements OnInit{
+export class AlbumEditComponent implements OnInit{
     public titulo: string;
-    public album: Album[];
+    public botonTitulo: string;
+    public album: Album;
     public errorMessage: any;
-    public confirmado;
 
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
         private _albumService: AlbumService
     ){
-        this.titulo = 'Detalle Album ';
+        this.titulo = 'Editar Album';
+        this.botonTitulo = 'Editar';
     }
 
     ngOnInit(){
-        console.log("albumDetailComponent.ts cargado");
+        console.log("AlbumEditComponent.ts cargado");
+        this.album = new Album("", "");
         this.getAlbum();
     }
 
@@ -56,31 +58,32 @@ export class AlbumDetailComponent implements OnInit{
 
     }
 
-    onDeleteConfirm(id){
-          this.confirmado = id;
-      }
+    onSubmit(){
+        this._route.params.forEach((params: Params) => {
+            let id = params['id'];
 
-      onCancelAlbum(){
-          this.confirmado = null;
-      }
+            this._albumService.editAlbum(id, this.album).subscribe(
+                response => {
+                    this.album = response.album;
 
-      onDeleteAlbum(id){
-          this._albumService.deleteAlbum(id).subscribe(
-              result => {
-                  if(!result.album){
-                      alert('Error en el servidor');
-                  }
-                  this._router.navigate(['/']);
-              },
-              error => {
-                  this.errorMessage = <any>error;
+                    if(!response.album){
+                        alert('Error en el servidor');
+                    }else{
+                        this._router.navigate(['/album/', id]);
+                    }
 
-                  if(this.errorMessage != null){
-                      console.log(this.errorMessage);
+                },
+                error => {
+                    this.errorMessage = <any>error;
 
-                  }
-              }
-          );
+                    if(this.errorMessage != null){
+                        console.log(this.errorMessage);
+                        this._router.navigate(['/']);
+                    }
+                }
 
-      }
+            );
+        });
+
+    }
 }

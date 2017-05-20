@@ -1,12 +1,22 @@
-<div class="w3-main w3-content w3-padding" style="max-width:1200px">
-  <h1>{{titulo}}</h1>
+<div *ngIf="album" class="w3-main w3-content w3-padding" style="max-width:1200px">
+  <h1>{{album.title}}</h1>
+  <a (click)="onDeleteConfirm(album._id)" class="w3-black w3-btn w3-button edit">Borrar</a>
+  <a [routerLink]="['/editar-album', album._id]" class="w3-black w3-btn w3-button edit">Editar</a>
+
   <hr id="about">
 
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16" >
 
     <div class="w3-quarter" >
-      
+
+      <div class="seguro" *ngIf="confirmado == album._id">
+        <a (click)="onDeleteAlbum(album._id)" class="w3-black w3-btn w3-button">Eliminar</a>
+        <a (click)="onCancelAlbum(album._id)" class="w3-black w3-btn w3-button">Cancelar</a>
+      </div>
+
+      <p>{{album.description}}</p>
+
 
     </div>
 

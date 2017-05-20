@@ -9,15 +9,15 @@
       <form class="" #formAlbum="ngForm" (ngSubmit)="onSubmit()">
         <label>Nombre: </label><br>
         <input type="text" #title="ngModel" name="title" [(ngModel)]="album.title" required>
-        <code *ngIf="!title.valid && title.touched">nombre es requerido</code>
+        <code *ngIf="!title.valid && title.touched">nombre requerido</code>
         <br>
         <br>
         <label>Descripción: </label><br>
         <textarea #description="ngModel" name="description" [(ngModel)]="album.description" rows="8" cols="40" required></textarea>
-        <code *ngIf="!description.valid && description.touched">descripción es requerido</code>
+        <code *ngIf="!description.valid && description.touched">descripción requerido</code>
         <br>
         <br>
-        <input class="w3-black w3-btn w3-button" type="submit" name="" value="Crear album" [disabled]="!formAlbum.form.valid">
+        <input class="w3-black w3-btn w3-button" type="submit" name="" value="{{botonTitulo}}" [disabled]="!formAlbum.form.valid">
       </form>
 
     </div>

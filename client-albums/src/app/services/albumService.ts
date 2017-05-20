@@ -33,5 +33,23 @@ export class AlbumService{
                                  .map(res => res.json());
     }
 
+    editAlbum(id: string, album: Album){
+        let json = JSON.stringify(album);
+        let params = json;
+        let headers = new Headers({'Content-Type':'application/json'});
+
+        return this._http.put(this.url+'album/'+id, params, {headers: headers})
+                         .map(res => res.json());
+
+    }
+
+    deleteAlbum(id: string){
+        return this._http.delete(this.url+'album/'+id)
+                         .map(res => res.json());
+
+    }
+
+
+
 
 }

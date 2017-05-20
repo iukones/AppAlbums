@@ -1,15 +1,15 @@
 <div class="w3-main w3-content w3-padding" style="max-width:1200px">
-    <h1 id="top">{{titulo}}</h1>
+    <!-- <h1 id="top">{{titulo}}</h1> -->
     <hr id="about">
 
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16 w3-center">
 
     <div *ngFor="let album of albums" class="w3-quarter">
-      <img src="../assets/img/album-1.jpg" alt="Sandwich" style="width:100%">
+      <img src="../assets/img/wallpaper.jpg" alt="" style="width:100%">
       <h3>{{album.title}}</h3>
       <p>{{album.description}}</p>
-      <a href="#" class="w3-black w3-btn w3-button">Ver Album</a>
+      <a [routerLink]="['/album', album._id]" class="w3-black w3-btn w3-button">Ver</a>
     </div>
 
   </div>
