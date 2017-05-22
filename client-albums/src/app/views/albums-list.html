@@ -10,6 +10,8 @@
       <h3>{{album.title}}</h3>
       <p>{{album.description}}</p>
       <a [routerLink]="['/album', album._id]" class="w3-black w3-btn w3-button">Ver</a>
+      <a [routerLink]="['/agregar-imagen', album._id]" class="w3-black w3-btn w3-button">agregar imagen</a>
+
     </div>
 
   </div>

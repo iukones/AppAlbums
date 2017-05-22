@@ -9,6 +9,7 @@ import { AlbumsListComponent } from './components/albumListComponent';
 import { AlbumAddComponent } from './components/albumAddComponent';
 import { AlbumDetailComponent } from './components/albumDetailComponent';
 import { AlbumEditComponent } from './components/albumEditComponent';
+import { ImageAddComponent } from './components/imageAddComponent';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AlbumEditComponent } from './components/albumEditComponent';
     AlbumsListComponent,
     AlbumAddComponent,
     AlbumDetailComponent,
-    AlbumEditComponent
+    AlbumEditComponent,
+    ImageAddComponent
   ],
   imports: [
     BrowserModule,
