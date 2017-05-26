@@ -25,7 +25,7 @@ export class AlbumAddComponent implements OnInit{
     }
 
     ngOnInit(){
-        console.log("albumAddComponent.ts cargado");
+        // console.log("albumAddComponent.ts cargado");
         this.album = new Album("", "");
 
     }

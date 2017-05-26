@@ -25,7 +25,7 @@ export class AlbumEditComponent implements OnInit{
     }
 
     ngOnInit(){
-        console.log("AlbumEditComponent.ts cargado");
+        // console.log("AlbumEditComponent.ts cargado");
         this.album = new Album("", "");
         this.getAlbum();
     }

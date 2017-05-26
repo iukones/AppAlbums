@@ -14,7 +14,7 @@
         <br>
         <div *ngIf="is_edit">
           <label>Sube tu foto: </label><br>
-          <input class="w3-black w3-btn w3-button" type="file" name="" value="" placeholder="selecciona imagen...">          
+          <input class="w3-black w3-btn w3-button" type="file" name="" value="" placeholder="selecciona imagen..." (change)="fileChangeEvent($event)">
         </div>
         <br>
         <br>

@@ -1,22 +1,25 @@
 <div *ngIf="album" class="w3-main w3-content w3-padding" style="max-width:1200px">
   <h1>{{album.title}}</h1>
   <a (click)="onDeleteConfirm(album._id)" class="w3-black w3-btn w3-button edit">Borrar</a>
-  <a [routerLink]="['/editar-album', album._id]" class="w3-black w3-btn w3-button edit">Editar</a>
+  <a [routerLink]="['/editar-album', album._id]" class="w3-black w3-btn w3-button edit">{{botonEdit}}</a>
+  <a [routerLink]="['/agregar-imagen', album._id]" class="w3-black w3-btn w3-button edit">{{botonImg}}</a>
 
   <hr id="about">
 
   <!-- First Photo Grid-->
   <div class="w3-row-padding w3-padding-16" >
+    <div class="seguro" *ngIf="confirmado == album._id">
+      <a (click)="onDeleteAlbum(album._id)" class="w3-black w3-btn w3-button">Eliminar</a>
+      <a (click)="onCancelAlbum()" class="w3-black w3-btn w3-button">Cancelar</a>
+    </div>
 
-    <div class="w3-quarter" >
+    <h2>{{album.description}}</h2>
 
-      <div class="seguro" *ngIf="confirmado == album._id">
-        <a (click)="onDeleteAlbum(album._id)" class="w3-black w3-btn w3-button">Eliminar</a>
-        <a (click)="onCancelAlbum(album._id)" class="w3-black w3-btn w3-button">Cancelar</a>
+    <div *ngFor="let image of images" class="w3-quarter" >
+      <div *ngIf="images">
+        <a [routerLink]="['/imagen', image._id]"><img src="{{api_url + image.picture}}" style="width:100%" *ngIf="image.picture && image.picture !== 'null'"></a>
+        <h3>{{image.title}}</h3>
       </div>
-
-      <p>{{album.description}}</p>
-
 
     </div>
 
@@ -27,7 +30,7 @@
 <!-- Pagination -->
 <div class="w3-center w3-padding-32">
   <div class="w3-bar">
-    <a [routerLink]="['/']" class="w3-black w3-btn w3-button">« Regresar a Albums</a>
+    <a [routerLink]="['/']" class="w3-black w3-btn w3-button">« Albums</a>
   </div>
 </div>
 

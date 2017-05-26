@@ -25,7 +25,7 @@ export class ImageAddComponent implements OnInit{
     }
 
     ngOnInit(){
-        console.log("imageAddComponent.ts cargado");
+        // console.log("imageAddComponent.ts cargado");
         this.image = new Image("", "", "");
 
     }
@@ -35,13 +35,13 @@ export class ImageAddComponent implements OnInit{
             let album_id = params['album'];
             this.image.album = album_id;
 
-            this._imageService.AddImage(this.image).subscribe(
+            this._imageService.addImage(this.image).subscribe(
                 response => {
                   this.image = response.image;
                   if(!response.image){
                       alert("Error en el servidor");
                   }else{
-                    //   this._router.navigate(['/album', id]);
+                      this._router.navigate(['/editar-imagen', response.image._id]);
                   }
                 },
                 error => {

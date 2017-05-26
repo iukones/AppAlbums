@@ -13,7 +13,7 @@ export class AlbumsListComponent implements OnInit{
     public titulo: string;
     public albums: Album[];
     public errorMessage: any;
-    
+
 
 
     constructor(
@@ -25,7 +25,7 @@ export class AlbumsListComponent implements OnInit{
     }
 
     ngOnInit(){
-        console.log("albumsListComponent.ts cargado");
+        // console.log("albumsListComponent.ts cargado");
         this.getAlbums();
     }
 
@@ -49,6 +49,8 @@ export class AlbumsListComponent implements OnInit{
             }
         );
     }
+
+
 
 
 }

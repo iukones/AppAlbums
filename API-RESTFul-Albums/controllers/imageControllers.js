@@ -1,10 +1,10 @@
 'use strict'
 
-const Image = require('../models/imageModels')
-const Album = require('../models/albumModels')
+const Image = require('../models/imageModels');
+const Album = require('../models/albumModels');
 
 // se carga path requerido para realizar función subir imagen a servidor.
-const path = require('path')
+const path = require('path');
 // esta es una variable pura de NodeJS
 const fs = require('fs');
 
@@ -100,7 +100,7 @@ function deleteImage(req, res) {
               message: `Error al borrar la imagen: ${err}`
           })
           if(!imageRemoved) res.status(404).send({
-              message: `No se a podido eliminar la imagen`
+              message: 'No se a podido eliminar la imagen'
           })
           res.status(200).send({
               image: imageRemoved
@@ -110,30 +110,31 @@ function deleteImage(req, res) {
 
 // funcion tipo POST para subir una imagen al servidor y poder mostrarla via URL.
 function uploadImage(req, res) {
-  let imageId = req.params.imageId;
-  let file_name = 'No subido...';
+  var imageId = req.params.imageId;
+  var file_name = 'No subido...';
 
   if (req.files) {
-    let file_path = req.files.image.path
-    let file_split = file_path.split('\\')
-    let file_name = file_split[2]
-    let ext_split = file_name.split('\.')
-    let file_ext = ext_split[1]
+    var file_path = req.files.image.path;
+    var file_split = file_path.split('\\');
+    var file_name = file_split[1];
+    // var ext_split = file_name.split('\.');
+    // var file_ext = ext_split[1];
 
-    if(file_ext == 'png' || file_ext == 'jpeg' || file_ext == 'jpg' || file_ext == 'gif'){
+    // if(file_ext == 'png' || file_ext == 'jpeg' || file_ext == 'jpg' || file_ext == 'gif'){
       Image.findByIdAndUpdate(imageId, { picture: file_name }, (err, imageUpdated) => {
           if (err) res.status(500).send({
               message: `Error al subir la imagen: ${err}`
           })
           if (!imageUpdated) res.status(404).send({
-              message: 'No has subido ninguna imagen'
+              message: 'No has actualizado ninguna imagen'
           })
           res.status(200).send({
               image: imageUpdated
           })
       });
-      }
-      res.status(200).send({message: 'Extensión del archivo no valida'})
+      // }
+      // res.status(200).send({message: 'No has subido ninguna imagen'})
+
     }
 }
 

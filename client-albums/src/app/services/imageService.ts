@@ -14,6 +14,12 @@ export class ImageService{
         this.url = GLOBAL.url;
     }
 
+    getApiUrl(segment = ''):string{
+        let url = this.url + segment;
+        return url;
+
+    }
+
     getImages(albumId = null){
         if(albumId == null){
             return this._http.get(this.url+'images')
@@ -25,11 +31,11 @@ export class ImageService{
     }
 
     getImage(id){
-        return this._http.get(this.url+'images/'+id)
+        return this._http.get(this.url+'image/'+id)
                          .map(res => res.json());
     }
 
-    AddImage(image: Image){
+    addImage(image: Image){
         let json = JSON.stringify(image);
         let params = json;
         let headers = new Headers({'Content-Type':'application/json'});
