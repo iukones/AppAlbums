@@ -94,6 +94,7 @@ function updateImage(req, res) {
 // funcion para eliminar una imagen por ID de tipo DELETE.
 function deleteImage(req, res) {
     let imageId = req.params.imageId;
+    let update = req.body
 
     Image.findByIdAndRemove(imageId, (err, imageRemoved) => {
           if (err) res.status(500).send({
