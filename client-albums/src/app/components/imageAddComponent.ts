@@ -14,6 +14,7 @@ export class ImageAddComponent implements OnInit{
     public botonTitulo: string;
     public image: Image;
     public errorMessage: any;
+    public is_edit: boolean;
 
     constructor(
         private _route: ActivatedRoute,
@@ -22,6 +23,7 @@ export class ImageAddComponent implements OnInit{
     ){
         this.titulo = 'Agregar Imagen';
         this.botonTitulo = 'selecciona imagen';
+        this.is_edit = true;
     }
 
     ngOnInit(){
